@@ -8,13 +8,14 @@ const PlayersContainer = styled.div`
     align-items: center;
     flex-direction: column;
 `;
+
 export default function PlayerList(props) {
     const { players } = props;
     return (
         <PlayersContainer data-testid="playerList">
             {
                 players.map((player) => {
-                    return <Player key={player.id} player={player} />
+                return <Player key={player.id} player={player} />
                 })
             }
         </PlayersContainer>

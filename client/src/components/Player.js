@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function Player(props) {
+//Display the player data you receive from the API
+export default function Player (props) {
     const {player} = props;
     return(
         <div>

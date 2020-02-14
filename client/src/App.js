@@ -3,8 +3,9 @@ import Axios from 'axios';
 import PlayerList from './components/PlayerList';
 import './App.css';
 import Styled from 'styled-components';
-import styled from 'styled-components';
+import Navbar from './components/Navbar';
 
+//Class component that fetches data from the server
 class App extends React.Component {
   constructor() {
     super();
@@ -27,6 +28,7 @@ class App extends React.Component {
   render() {
     return (
         <div >
+        <Navbar/>
           <Pinkh1>Women's World Cup Soccer Players</Pinkh1>
         <PlayerList players={this.state.players} />
          </div>
