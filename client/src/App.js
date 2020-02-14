@@ -1,14 +1,9 @@
 import React from 'react';
 import Axios from 'axios';
-import PlayerList from './PlayerList';
+import PlayerList from './components/PlayerList';
 import './App.css';
+import Styled from 'styled-components';
 import styled from 'styled-components';
-
-const Pinkh1 = styled.div`
-color: pink;
-text-align: center;
-font-size: 3rem;
-`;
 
 class App extends React.Component {
   constructor() {
@@ -32,11 +27,17 @@ class App extends React.Component {
   render() {
     return (
         <div >
-          <Pinkh1 >Women's World Cup Soccer Players</Pinkh1>
+          <Pinkh1>Women's World Cup Soccer Players</Pinkh1>
         <PlayerList players={this.state.players} />
          </div>
     )
   }
 }
+
+const Pinkh1 = Styled.div`
+color: pink;
+text-align: center;
+font-size: 3rem;
+`;
 
 export default App;
