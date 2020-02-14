@@ -1,3 +1,4 @@
+//Build a custom hook and use it in your app - this can be a localStorage hook, a fetch hook, a dark mode hook, or any other hook you would like
 import {useState} from 'react';
 //custom hook that let's you save data to localStorage
 //add key and initialValue as parameters to the hook
