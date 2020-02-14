@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
+import Axios from 'axios';
+import PlayerList from './components/PlayerList';
 import './App.css';
+import Styled from 'styled-components';
+import Navbar from './components/Navbar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//Class component that fetches data from the server
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      players: []
+    }
+  }
+
+  componentDidMount() {
+    Axios.get(`http://localhost:5000/api/players`)
+      .then((res) => {
+         console.log(res);
+        this.setState({ players: res.data })
+      })
+      .catch((err) => {
+        console.log('Uh oh, there was an error', err);
+      })
+  }
+ 
+  render() {
+    return (
+        <div >
+        <Navbar/>
+          <Pinkh1>Women's World Cup Soccer Players</Pinkh1>
+        <PlayerList players={this.state.players} />
+         </div>
+    )
+  }
 }
+
+const Pinkh1 = Styled.div`
+color: pink;
+text-align: center;
+font-size: 3rem;
+`;
 
 export default App;
